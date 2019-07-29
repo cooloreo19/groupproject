@@ -13,16 +13,21 @@
   text-align: center;
   font-size: 25px;
 }
-.table1 {
+
+.table {
   background-color: black;
   color: white;
-  font-size: 25px;
+  font-size: 15px;
   font-weight: bolder;
   font-family: monospace;
   display: flex;
-  justify-content: center;
-
+  justify-content: space-around;
+  padding: 10px 16px;
 }
+
+.table a:link {text-decoration: none;}
+.table a:visited {color: white;}
+.table a:hover {color: gray;}
 
 .brainpic {
   justify-content: center;
@@ -31,8 +36,6 @@
 
 }
 
-
 .buttonlink {
-  background-color: black;
-
+  background-color: black; 
 }
