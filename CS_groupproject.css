@@ -2,6 +2,23 @@
 
 #heading1 {
   font-family: fantasy;
-  font-size: 250px;
+  font-size: 70px;
   text-align: center;
+}
+
+#heading2 {
+  font-family: fantasy;
+  text-align: center;
+  font-size: 25px;
+}
+#table1 {
+  align-items: center;
+}
+
+#brainpic {
+  image-resolution: from-image;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
