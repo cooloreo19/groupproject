@@ -15,10 +15,7 @@
   align-items: center;
 }
 
-#brainpic {
-  image-resolution: from-image;
+.brainpic {
+  justify-content: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
 }
