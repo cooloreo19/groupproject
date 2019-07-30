@@ -3,7 +3,6 @@
 #heading1 {
   font-family: fantasy;
   font-size: 70px;
-  te
   color: skyblue;
   text-align: center;
   text-shadow: 4px 3px black
@@ -22,20 +21,28 @@
   text-align: center;
 
 }
-.table1 {
+
+
+.table {
   background-color: black;
   color: white;
-  font-size: 25px;
+  font-size: 15px;
   font-weight: bolder;
   font-family: monospace;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 10px 16px;
 
 }
+
+.table a:link {text-decoration: none;}
+.table a:visited {color: white;}
+.table a:hover {color: gray;}
 
 .brainpic {
   justify-content: center;
   display: flex;
+
 
 
 }
@@ -43,6 +50,61 @@
 
 .buttonlink {
   background-color: black;
+
+
+  
+
+}
+
+.buttonlink {
+  background-color: black; 
+}
+
+
+
+
+/*  Celide put this */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* relevant styles */
+
+
+body{
+  background-color: white;
+}
+.img__wrap {
+  position: relative;
+  height: 200px;
+  width: 257px;
+}
+
+.img__description {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 600px;
+  vertical-align: sub;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  background-color:rgba(169,169,169,0.3);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 50px;
+  font-weight: bold;
+  transition: opacity .3s, visibility .3s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
 
 }
  .sourcelist {
