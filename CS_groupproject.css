@@ -23,6 +23,10 @@
 }
 
 
+.img__img {
+  justify-content: center;
+  display: flex;
+}
 .table {
   background-color: black;
   color: white;
@@ -39,26 +43,9 @@
 .table a:visited {color: white;}
 .table a:hover {color: gray;}
 
-.brainpic {
-  justify-content: center;
-  display: flex;
 
 
 
-}
-
-
-.buttonlink {
-  background-color: black;
-
-
-  
-
-}
-
-.buttonlink {
-  background-color: black; 
-}
 
 
 
@@ -71,6 +58,8 @@
 }
 
 /* relevant styles */
+
+
 
 
 body{
