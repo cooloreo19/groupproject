@@ -48,7 +48,7 @@
 .table1 {
   color: white;
   background-color: black;
-  font-size: 25px;
+  font-size: 17px;
   font-weight: bolder;
   font-family: monospace;
   display: flex;
@@ -58,6 +58,7 @@
 
 .table1 a{
   color: white;
+  text-decoration: none;
 }
 
 
