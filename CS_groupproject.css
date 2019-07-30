@@ -65,4 +65,5 @@ body{
 .img__wrap:hover .img__description {
   visibility: visible;
   opacity: 1;
+
 }
