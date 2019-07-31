@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/templates/css/quiz.css">
+  </head>
+  <body>
+    <h1 id="head1">Quiz on Important Facts</h1>
+    <h2 id="head2">{{question}}</h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id = "textboxesss" >
+<center>
+    <table>
+      <tr>
+        <div class="rc1">
+
+          <td id = "rc" >
+            <input  type="radio" name="Answer" value="{{correct_answer}}">{{correct_answer}}</input>
+          </td>
+        </div>
+            {% for w_answer in incorrect_answers %}
+          <td id = "wa">
+            <input   type="radio" name="Answer" value="{{w_answer}}">{{w_answer}}</input>
+            {% endfor %}
+          </td>
+      </tr>
+    </table>
+  </center>
+  </div>
+
+    <table id=tableNQ>
+      <tr>
+        <button onclick="window.location.href = 'http://localhost:8080/brainquiz';">NEXT QUESTION</button>
+      </tr>
+    </table>
+  </body>
+</html>
