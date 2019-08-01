@@ -1,7 +1,6 @@
 import webapp2
 import jinja2
 import os
-# from google.appengine.api import urlfetch
 import json
 import random
 
@@ -12,39 +11,62 @@ loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions=['jinja2.ext.autoescape'],
 autoescape=True)
 
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        home_template = the_jinja_env.get_template('HTML_groupproject.html')
+        self.response.write(home_template.render())
 
 class BrainQuizPage(webapp2.RequestHandler):
     def get(self):
-        trivia_url_endpoint = {"category": "Frontal Lobe",
-            "question": "MAIN CONTROL",
+
+        trivia_url_endpoint = [
+        {"ID": 0, "question": "FRONTAL LOBE: dlfjldkfglgkjdflgkjfdlgkjld?",
             "count": 1,
             "correct_answer": "Jupiter",
-            "incorrect_answers": [
-            "Uranus",
-            "Neptune",
-            "Mars"
-            ]};
+            "answers": [
+                "Jupiter",
+                "Uranus",
+                "Neptune",
+                "Mars"
+            ]
+        },
+        {"ID":1, "question": "TEMPORAL LOBE: ",
+            "count": 1,
+            "correct_answer": "Jiter",
+            "answers": [
+                "Jiter",
+                "Urus",
+                "Nune",
+                "Mrs"
+                ]
+            },
+        ]
 
 
         quiz_template = the_jinja_env.get_template('quiz.html')
 
 
 
-        all_answers = [trivia_url_endpoint["correct_answer"]]
-        for answer in trivia_url_endpoint["incorrect_answers"]:
-            all_answers.append(answer)
+        all_answers = trivia_url_endpoint[0]["answers"]
+        # for answer in trivia_url_endpoint[0]["incorrect_answers"]:
+        #     all_answers.append(answer)
         random.shuffle(all_answers)
 
         qtn = { "answers": all_answers,
-            "question": trivia_url_endpoint["question"], "correct": trivia_url_endpoint["correct_answer"]
+            "question": trivia_url_endpoint[0]["question"], "correct": trivia_url_endpoint[0]["correct_answer"]
             }
 
 
 
 
 
-        self.response.write(quiz_template.render(trivia_url_endpoint))
+        self.response.write(quiz_template.render(qtn))
+
+    def post(self):
+        print(self.request.get("answers"))
+
 
 app = webapp2.WSGIApplication([
-    ('/brainquiz', BrainQuizPage)
+    ('/', MainPage),
+    ('/brainquiz', BrainQuizPage),
 ], debug=True)

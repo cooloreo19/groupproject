@@ -4,14 +4,30 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="/templates/css/quiz.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src = "/templates/JS_groupproject.js">
+
+    </script>
   </head>
   <body>
-    <h1 id="head1">Quiz on Important Facts</h1>
+    <p id = brtitle>
+      <img id = img1 src="https://i2.wp.com/upload.wikimedia.org/wikipedia/commons/9/99/Four_lobes_animation_small2.gif?zoom=2" alt="">    <img id=img2 src="https://i2.wp.com/upload.wikimedia.org/wikipedia/commons/9/99/Four_lobes_animation_small2.gif?zoom=2" alt="">
+
+      <br>
+  <span style='color: blue'>B</span>
+  <span style='color: #FF7F50'>r</span>
+  <span style='color: #9370DB'>a</span>
+  <span style='color: #8FBC8F'>i</span>
+  <span style='color: blue'>n</span>
+<br>
+  <span id = q style='color: blue, #FF7F50 '>Q</span>
+  <span style='color: #9370DB'>u</span>
+  <span style='color: #8FBC8F'>i</span>
+  <span style='color: blue'>z</span>
+    </p>
+
+    <h3 id="head3">To THINK or to not THINK there are no TRICKS</h3>
     <h2 id="head2">{{question}}</h2>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -22,14 +38,14 @@
     <table>
       <tr>
         <div class="rc1">
-
-          <td id = "rc" >
+          <!-- <td id = "rc" >
             <input  type="radio" name="Answer" value="{{correct_answer}}">{{correct_answer}}</input>
-          </td>
+          </td> -->
         </div>
-            {% for w_answer in incorrect_answers %}
-          <td id = "wa">
-            <input   type="radio" name="Answer" value="{{w_answer}}">{{w_answer}}</input>
+            {% for w_answer in answers %}
+          <td >
+            <label class = button for="button-{{loop.index}}">{{w_answer}}</label>
+            <input id=button-{{loop.index}} type="radio" name = "Choices"   value="{{w_answer}}"></input>
             {% endfor %}
           </td>
       </tr>
@@ -39,7 +55,8 @@
 
     <table id=tableNQ>
       <tr>
-        <button onclick="window.location.href = 'http://localhost:8080/brainquiz';">NEXT QUESTION</button>
+        <br><br><br><br><br>
+        <input type=submit class = "buttonNQ" value="NEXT QUESTION" onclick='NextQuestion()';></input>
       </tr>
     </table>
   </body>
