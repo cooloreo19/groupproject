@@ -9,12 +9,14 @@
 #head2 {
   text-align: left;
   font-family: monospace;
-  font-size: 20px
+  font-size: 27px;
+  word-wrap: normal|break-word|initial|inherit;
 }
 
 #head3 {
   text-align: center;
   font-family: cursive;
+  font-size: 23px
 }
 
 #brtitle {
@@ -32,7 +34,7 @@
   position: fixed;
   right: 80%;
 }
-@keyframes example {
+@keyframes bugg {
   0% {color: blue;}
   25% {color: red;}
   50% {color: yellow;}
@@ -43,15 +45,15 @@
  border: none;
  text-shadow: 1px 1px black;
  background-color: lightgrey;
- text-align: center;
  font-weight: bolder;
  color: white;
  padding: 15px 32px;
- text-align: center;
+ position:absolute;
+ right: 100px;
  text-decoration: none;
  display: inline-block;
- font-size: 16px;
- animation-name: example;
+ font-size: 25px;
+ animation-name: bugg;
  animation-duration: 5s;
  animation-iteration-count: infinite;
 }
@@ -89,7 +91,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 #wa {

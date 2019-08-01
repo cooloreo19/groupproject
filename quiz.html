@@ -56,7 +56,10 @@
     <table id=tableNQ>
       <tr>
         <br><br><br><br><br>
-        <input type=submit class = "buttonNQ" value="NEXT QUESTION" onclick='NextQuestion()';></input>
+        <form class="" action="/brainquiz" method="get">
+          <input type = hidden name= current value = {{ID}}></input>
+        <input type=submit class = "buttonNQ" value="NEXT QUESTION" onclick='NextQuestion();'></input>
+        </form>
       </tr>
     </table>
   </body>
