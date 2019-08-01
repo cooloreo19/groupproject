@@ -83,6 +83,7 @@ class BrainQuizPage(webapp2.RequestHandler):
         if next >= len(trivia_url_endpoint):
             self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=https://www.w3docs.com\" />")
             return
+            
 
 
 
