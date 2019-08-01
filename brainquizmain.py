@@ -21,6 +21,7 @@ class BrainQuizPage(webapp2.RequestHandler):
 
 
 
+
     def get(self):
         current = self.request.get("current")
         next = 0
