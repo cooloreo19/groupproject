@@ -9,6 +9,8 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
+	#main_page = JINJA_ENVIRONMENT.get_template('templates/home.html')
+	#self.response.write(main_page.render())
         self.response.headers['Content-Type'] = 'text/plain'
         self.response.write('Saluton, Mondo!')
 
