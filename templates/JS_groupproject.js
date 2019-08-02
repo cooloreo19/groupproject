@@ -1,7 +1,6 @@
 function NextQuestion() {
   ans = ($("input[name=Choices]:checked").val())
   num = ($("#qtn").val())
-  //if(ans === document.querySelector()
   jQuery.ajax({
     type: "post",
     url: "/brainquiz",
@@ -11,3 +10,17 @@ function NextQuestion() {
     }
   })
 }
+
+ function selected(){
+$(".buttonsec").click(function(){
+          if($(this).is(':checked')){
+              $(this).parent().addClass("selected");
+          }
+          $(".buttonsec").not(this).each(function(){
+          $(this).parent().removeClass("selected");
+          });
+        });}
+
+        $(document).ready(function (){
+            selected();
+        })
