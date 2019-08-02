@@ -3,7 +3,7 @@ function NextQuestion() {
   num = ($("#qtn").val())
   jQuery.ajax({
     type: "post",
-    url: "/brainquiz",
+    url: "/results",
     data: {
       "answer": ans,
       "question": num
