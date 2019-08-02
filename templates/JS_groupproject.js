@@ -1,16 +1,16 @@
-
-
 function NextQuestion() {
   ans = ($("input[name=Choices]:checked").val())
+  num = ($("#qtn").val())
   jQuery.ajax({
     type: "post",
     url: "/brainquiz",
     data: {
-      "answer": ans
+      "answer": ans,
+      "question": num
     }
   })
-
 }
+
  function selected(){
 $(".buttonsec").click(function(){
           if($(this).is(':checked')){
