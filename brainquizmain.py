@@ -16,6 +16,7 @@ autoescape=True)
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
+
       user = users.get_current_user()
       email_address = user.nickname()
       cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
@@ -24,6 +25,85 @@ class MainPage(webapp2.RequestHandler):
         }
       home_template = the_jinja_env.get_template('HTML_groupproject.html')
       self.response.write(home_template.render(variable_dict))
+
+
+        home_template = the_jinja_env.get_template('HTML_groupproject.html')
+        self.response.write(home_template.render())
+
+trivia_url_endpoint = [
+        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: One you know for sure is the way out, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
+            "count": 1,
+            "correct_answer": "Door 1",
+            "answers": [
+                "Door 1",
+                "Door 2",
+                "Sit and Rot",
+                "Make Tallies on the Wall"
+            ],
+	    "correct": False
+        },
+        {"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
+           "count": 1,
+            "correct_answer": "W L C N",
+            "answers": [
+                "W Q D N",
+                "J I D K",
+                "W L C N",
+                "I D C N"
+                ],
+	    "correct": False
+            },
+        {"ID":2, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
+           "count": 1,
+            "correct_answer": "W L C N",
+            "answers": [
+                "W Q D N",
+                "J I D K",
+                "W L C N",
+                "I D C N"
+            ],
+	    "correct": False
+        },
+        {"ID":3, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
+           "count": 1,
+            "correct_answer": "W L C N",
+            "answers": [
+                "W Q D N",
+                "J I D K",
+                "W L C N",
+                "I D C N"
+            ],
+	    "correct": False
+        },
+        {"ID":4, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
+           "count": 1,
+            "correct_answer": "W L C N",
+            "answers": [
+                "W Q D N",
+                "J I D K",
+                "W L C N",
+                "I D C N"
+            ],
+	    "correct": False
+        },
+    ]
+
+class BrainDiagram(webapp2.RequestHandler):
+  def get(self):
+      user = users.get_current_user()
+      email_address = user.nickname()
+      cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
+      first_name = CssiUser.query().filter(CssiUser.first_name == cssi_user.first_name).get()
+
+      # If the user is registered...
+      if cssi_user:
+          braindiagram_html = the_jinja_env.get_template('HTML_groupproject.html')
+
+          thisdict =	{
+            "username": cssi_user,
+            "first_name": cssi_user.first_name
+          }
+          self.response.write(braindiagram_html.render(thisdict))
 
 class BrainDiagram(webapp2.RequestHandler):
   def get(self):
@@ -105,87 +185,26 @@ class UserInfo(webapp2.RequestHandler):
         # If the user isn't registered...
         else:
           # Offer a registration form for a first-time visitor:
+
+
+          self.response.write(login_html.render(cssi_user = cssi_user))
+
           login_html = the_jinja_env.get_template('makeaccount.html')
           self.response.write(login_html.render(cssi_user = cssi_user))
 
 
 
 
-
-
 class BrainQuizPage(webapp2.RequestHandler):
-
-
-
-
     def get(self):
         current = self.request.get("current")
         next = 0
         if current != "":
             next = int(current)+ 1
 
-
-
-        trivia_url_endpoint = [
-        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: One you know for sure is the way out, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
-            "count": 1,
-            "correct_answer": "Door 1",
-            "answers": [
-                "Door 1",
-                "Door 2",
-                "Sit and Rot",
-                "Make Tallies on the Wall"
-            ]
-        },
-        {"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-                ]
-            },
-        {"ID":2, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ]
-        },
-        {"ID":3, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ]
-        },
-        {"ID":4, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ]
-        },
-    ]
         if next >= len(trivia_url_endpoint):
-            self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=https://www.w3docs.com\" />")
+            self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=templates/results_progress.html\">")
             return
-
-
-
-
-
 
         quiz_template = the_jinja_env.get_template('quiz.html')
 
@@ -203,6 +222,7 @@ class BrainQuizPage(webapp2.RequestHandler):
             "question": trivia_url_endpoint[next]["question"], "correct": trivia_url_endpoint[next]["correct_answer"], "ID": next
             }
 
+        qtn = self.get_current_qtn(next)
 
 
 
@@ -210,7 +230,22 @@ class BrainQuizPage(webapp2.RequestHandler):
         self.response.write(quiz_template.render(qtn))
 
     def post(self):
-        print(self.request.get("answers"))
+        print(self.request.get("answer"))
+        ans = self.request.get("answer")
+	num = self.request.get("question")
+        qtn = self.get_current_qtn(int(num))
+
+        if(ans == qtn["correct"]):
+	    print("ye")
+	else:
+	    print("no")
+
+    def get_current_qtn(self, next):
+
+        qtn = { "answers": trivia_url_endpoint[next]["answers"],
+            "question": trivia_url_endpoint[next]["question"], "correct": trivia_url_endpoint[next]["correct_answer"], "ID": next
+            }
+	return qtn
 
 
 app = webapp2.WSGIApplication([
