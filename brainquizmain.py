@@ -6,6 +6,9 @@ import os
 import json
 import random
 
+
+
+
 the_jinja_env = jinja2.Environment(
 loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions=['jinja2.ext.autoescape'],
@@ -13,26 +16,25 @@ autoescape=True)
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        home_template = the_jinja_env.get_template('HTML_groupproject.html')
-        self.response.write(home_template.render())
-
-class BrainDiagram(webapp2.RequestHandler):
-  def get(self):
       user = users.get_current_user()
       email_address = user.nickname()
       cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
-      first_name = CssiUser.query().filter(CssiUser.first_name == cssi_user.first_name).get()
+      variable_dict={
+        "cssi_user": cssi_user
+        }
+      home_template = the_jinja_env.get_template('HTML_groupproject.html')
+      self.response.write(home_template.render(variable_dict))
 
-      # If the user is registered...
-      if cssi_user:
-          braindiagram_html = the_jinja_env.get_template('HTML_groupproject.html')
-
-          thisdict =	{
-            "username": cssi_user,
-            "first_name": cssi_user.first_name
-          }
-          self.response.write(braindiagram_html.render(thisdict))   
-
+class BrainDiagram(webapp2.RequestHandler):
+  def get(self):
+    user = users.get_current_user()
+    email_address = user.nickname()
+    cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
+    variable_dict={
+      "cssi_user": cssi_user
+      }
+    braindiagram_html = the_jinja_env.get_template('HTML_groupproject.html')
+    self.response.write(braindiagram_html.render(variable_dict))
 
 
 class CssiUser(ndb.Model):
@@ -84,35 +86,29 @@ class LogIn(webapp2.RequestHandler):
     login_html = the_jinja_env.get_template('thankssignup.html')
     print(cssi_user)
 
-    self.response.write(login_html.render(cssi_user = cssi_user))
+    variable_dict={
+    "cssi_user": cssi_user
+    }
+    self.response.write(login_html.render(variable_dict))
 
 class UserInfo(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         email_address = user.nickname()
         cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
-        first_name = CssiUser.query().filter(CssiUser.first_name == cssi_user.first_name).get()
-
         # If the user is registered...
         if cssi_user:
             login_html = the_jinja_env.get_template('welcomeuser.html')
             print(cssi_user)
 
-            thisdict =	{
-              "username": cssi_user,
-              "first_name": cssi_user.first_name
-            }
-            x = thisdict["username"]
-            self.response.write(login_html.render(thisdict))
+            self.response.write(login_html.render(cssi_user = cssi_user))
         # If the user isn't registered...
-
-
-
         else:
           # Offer a registration form for a first-time visitor:
-          self.response.write(login_html.render(cssi_user = cssi_user))
           login_html = the_jinja_env.get_template('makeaccount.html')
-          self.response.write(login_html.render(thisdict))
+          self.response.write(login_html.render(cssi_user = cssi_user))
+
+
 
 
 
@@ -131,17 +127,17 @@ class BrainQuizPage(webapp2.RequestHandler):
 
 
         trivia_url_endpoint = [
-        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: Door1 you know for sure holds a deadly booby trap, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
+        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: One you know for sure is the way out, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
             "count": 1,
-            "correct_answer": "Door2",
+            "correct_answer": "Door 1",
             "answers": [
                 "Door 1",
                 "Door 2",
                 "Sit and Rot",
-                "Both"
+                "Make Tallies on the Wall"
             ]
         },
-        {"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figure out what letters come next? :: Y F G Y T W L P C Y F O ...",
+        {"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
            "count": 1,
             "correct_answer": "W L C N",
             "answers": [
@@ -151,48 +147,37 @@ class BrainQuizPage(webapp2.RequestHandler):
                 "I D C N"
                 ]
             },
-        {"ID":2, "question": "What is the difference between a Student studying and a Farmer watching his cattle?",
+        {"ID":2, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
            "count": 1,
-            "correct_answer": "One stocks his mind, while the other watches his stock",
+            "correct_answer": "W L C N",
             "answers": [
-                "One stocks bookshelves, while the other reads the books",
-                "One stocks his mind, while the other watches his stock",
-                "One goes to school all day, while the other goes to the farm all day",
-                "IDK"
+                "W Q D N",
+                "J I D K",
+                "W L C N",
+                "I D C N"
             ]
         },
-        {"ID":3, "question": "Blue, Yellow, GRASS :: Red, White, ROSE :: Red, Yellow, ... What's Next?",
+        {"ID":3, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
            "count": 1,
-            "correct_answer": "Orange",
+            "correct_answer": "W L C N",
             "answers": [
-                "Orange",
-                "Pie",
-                "Flower",
-                "Ornange"
+                "W Q D N",
+                "J I D K",
+                "W L C N",
+                "I D C N"
             ]
         },
-        {"ID":4, "question": "It has keys but no locks, space but no room, you can enter but can't go inside...",
+        {"ID":4, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
            "count": 1,
-            "correct_answer": "It's a Keyboard",
+            "correct_answer": "W L C N",
             "answers": [
-                "It's a Soul",
-                "It's a Phone",
-                "It's a Ship",
-                "It's a Keyboard"
-            ]
-        },
-        {"ID":5, "question": "1, 111, 131, 11311, 12321...What's Next?",
-           "count": 1,
-            "correct_answer": "14341",
-            "answers": [
-                "1123211",
-                "14341",
-                "1223221",
-                "142241"
+                "W Q D N",
+                "J I D K",
+                "W L C N",
+                "I D C N"
             ]
         },
     ]
-
         if next >= len(trivia_url_endpoint):
             self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=https://www.w3docs.com\" />")
             return
@@ -212,15 +197,13 @@ class BrainQuizPage(webapp2.RequestHandler):
         # add ...........................^[next]
         # for answer in trivia_url_endpoint[0]["incorrect_answers"]:
 
-
+        # random.shuffle(all_answers)
 
         qtn = { "answers": trivia_url_endpoint[next]["answers"],
-            "question": trivia_url_endpoint[next]["question"],
-            "correct": trivia_url_endpoint[next]["correct_answer"],
-            "ID": next
+            "question": trivia_url_endpoint[next]["question"], "correct": trivia_url_endpoint[next]["correct_answer"], "ID": next
             }
 
-        # random.shuffle(qtn.question())
+
 
 
 
