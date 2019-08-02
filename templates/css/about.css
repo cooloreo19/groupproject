@@ -19,6 +19,8 @@ body {
   font-family: fantasy;
   position: absolute;
   right: 100px;
+  top: 50px;
+  font-size: 30px
 }
 
 img {
