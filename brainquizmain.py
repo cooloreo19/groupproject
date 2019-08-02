@@ -152,7 +152,17 @@ class BrainQuizPage(webapp2.RequestHandler):
                 "I D C N"
                 ]
             },
-        {"ID":2, "question": "What is the difference between a Student studying and a Farmer watching his cattle?",
+        {"ID":2, "question": "Does a straw have 1 hole or 2?",
+           "count": 1,
+            "correct_answer": "ONE!",
+            "answers": [
+                "ONE!",
+                "",
+                "",
+                "TWO!"
+            ]
+        },
+        {"ID":3, "question": "Imagine you are stranded inside a zombie infested city! You have a match and three items in the building you are in: a stove, a Cannon, and a gas lamp. What item will you light first? Hurry the zombies are outside! ",
            "count": 1,
             "correct_answer": "One stocks his mind, while the other watches his stock",
             "answers": [
@@ -162,7 +172,17 @@ class BrainQuizPage(webapp2.RequestHandler):
                 "IDK"
             ]
         },
-        {"ID":3, "question": "Blue, Yellow, GRASS :: Red, White, ROSE :: Red, Yellow, ... What's Next?",
+        {"ID":4, "question": "What is the difference between a Student studying and a Farmer watching his cattle?",
+           "count": 1,
+            "correct_answer": "One stocks his mind, while the other watches his stock",
+            "answers": [
+                "One stocks bookshelves, while the other reads the books",
+                "One stocks his mind, while the other watches his stock",
+                "One goes to school all day, while the other goes to the farm all day",
+                "IDK"
+            ]
+        },
+        {"ID":5, "question": "Blue, Yellow, GRASS :: Red, White, ROSE :: Red, Yellow, ... What's Next?",
            "count": 1,
             "correct_answer": "Orange",
             "answers": [
@@ -172,7 +192,7 @@ class BrainQuizPage(webapp2.RequestHandler):
                 "Ornange"
             ]
         },
-        {"ID":4, "question": "It has keys but no locks, space but no room, you can enter but can't go inside...",
+        {"ID":6, "question": "It has keys but no locks, space but no room, you can enter but can't go inside...",
            "count": 1,
             "correct_answer": "It's a Keyboard",
             "answers": [
@@ -182,7 +202,7 @@ class BrainQuizPage(webapp2.RequestHandler):
                 "It's a Keyboard"
             ]
         },
-        {"ID":5, "question": "1, 111, 131, 11311, 12321...What's Next?",
+        {"ID":7, "question": "1, 111, 131, 11311, 12321...What's Next?",
            "count": 1,
             "correct_answer": "14341",
             "answers": [
