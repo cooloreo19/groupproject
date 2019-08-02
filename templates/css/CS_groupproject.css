@@ -53,7 +53,7 @@
   -webkit-transition: all .5s ease-in-out;
 }
 
-/* .textbox {
+.textbox {
     display: none;
     border:1px solid #000;
     height:30px;
@@ -62,7 +62,7 @@
 } */
 /* #textbox222:hover + .textbox {
     display: block;
-} */
+}
 
 /* NOSA */
 .table1 {
