@@ -6,9 +6,6 @@ import os
 import json
 import random
 
-
-
-
 the_jinja_env = jinja2.Environment(
 loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions=['jinja2.ext.autoescape'],
@@ -21,8 +18,21 @@ class MainPage(webapp2.RequestHandler):
 
 class BrainDiagram(webapp2.RequestHandler):
   def get(self):
-    braindiagram_html = the_jinja_env.get_template('HTML_groupproject.html')
-    self.response.write(braindiagram_html.render())
+      user = users.get_current_user()
+      email_address = user.nickname()
+      cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
+      first_name = CssiUser.query().filter(CssiUser.first_name == cssi_user.first_name).get()
+
+      # If the user is registered...
+      if cssi_user:
+          braindiagram_html = the_jinja_env.get_template('HTML_groupproject.html')
+
+          thisdict =	{
+            "username": cssi_user,
+            "first_name": cssi_user.first_name
+          }
+          self.response.write(braindiagram_html.render(thisdict))   
+
 
 
 class CssiUser(ndb.Model):
@@ -81,17 +91,28 @@ class UserInfo(webapp2.RequestHandler):
         user = users.get_current_user()
         email_address = user.nickname()
         cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
+        first_name = CssiUser.query().filter(CssiUser.first_name == cssi_user.first_name).get()
+
         # If the user is registered...
         if cssi_user:
             login_html = the_jinja_env.get_template('welcomeuser.html')
             print(cssi_user)
 
-            self.response.write(login_html.render(cssi_user = cssi_user))
+            thisdict =	{
+              "username": cssi_user,
+              "first_name": cssi_user.first_name
+            }
+            x = thisdict["username"]
+            self.response.write(login_html.render(thisdict))
         # If the user isn't registered...
+
+
+
         else:
           # Offer a registration form for a first-time visitor:
-          login_html = the_jinja_env.get_template('makeaccount.html')
           self.response.write(login_html.render(cssi_user = cssi_user))
+          login_html = the_jinja_env.get_template('makeaccount.html')
+          self.response.write(login_html.render(thisdict))
 
 
 

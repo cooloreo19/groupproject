@@ -25,4 +25,51 @@ body{
       50%{background-position:100% 50%}
       100%{background-position:0% 50%}
   }
+
+.text{
+margin: auto;
+ width: 50%;
+ border: 3px ;
+ padding: 10px;
+font-family: 'Rubik', sans-serif;
+border-width: 20px;
+-webkit-border-radius: 10px 10px 10px 10px;
+ border-radius: 10px 10px 10px 10px;
+ padding: 30px;
+ width: 90%;
+ max-width: 450px;
+ position: relative;
+ padding: 50px;
+ -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+ box-shadow: 0 50px 80px 0 rgba(0,0,0,0.3);
+ text-align: center;
+ margin-top: 250px;
+}
+
+.text2{
+margin: auto;
+ width: 50%;
+ border: 3px ;
+ padding: 10px;
+font-family: 'Rubik', sans-serif;
+border-width: 20px;
+-webkit-border-radius: 10px 10px 10px 10px;
+ border-radius: 10px 10px 10px 10px;
+ padding: 30px;
+ width: 90%;
+ max-width: 450px;
+ position: relative;
+ padding: 50px;
+ -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+ box-shadow: 0 50px 80px 0 rgba(0,0,0,0.3);
+ text-align: center;
+ margin-top: 50px;
+}
+.welcome{
+  text-align: center;
+  font-weight: bold;
+  font-size: 75px;
+  font-family: sans-serif;
+
+
 }
