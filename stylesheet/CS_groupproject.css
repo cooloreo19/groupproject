@@ -7,48 +7,32 @@
   -webkit-transition: all .5s ease-in-out;
 }
 
+.background{
+  background-color: yellow;
+}
+
 /* HUNTER */
 #heading1 {
-  font-family: fantasy;
-  font-size: 80px;
+  font-family: times;
+  font-size: 70px;
   color: skyblue;
   text-align: center;
   text-shadow: 4px 3px black
 }
-@keyframes example {
-  0% {color: blue;}
-  50% {color: #FF7F50;}
-  100% {color: blue;}
-}
 
-
-/* The element to apply the animation to */
-#q {
-  width: 100px;
-  height: 100px;
-  animation-name: example;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-}
 #heading2 {
-  font-family: monospace;
+  font-family: times;
   text-align: center;
   font-size: 22px;
   text-align: center;
 }
 
-#ttt {
-  display: flex;
-  justify-content: center;
-  border: 15px solid black
-}
 #heading3 {
   font-size: 25px;
   font-family: sans-serif;
   text-align: center;
 }
 
-/* Need to make a more appealing font style and have lobe title bigger than description */
 #labels {
   text-align:center;
   font-family: Arial, Helvetica, sans-serif;
@@ -58,7 +42,16 @@
   -webkit-transition: all .5s ease-in-out;
 }
 
-
+/* .textbox {
+    display: none;
+    border:1px solid #000;
+    height:30px;
+    width:290px;
+    margin-left:10px;
+} */
+/* #textbox222:hover + .textbox {
+    display: block;
+} */
 
 /* NOSA */
 .table1 {
@@ -92,11 +85,11 @@ body{
 }
 .img__wrap {
   position: absolute;
-  left: 244px;
+  left: 275px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 50%;
 
 
 }
@@ -127,4 +120,6 @@ body{
 .img__wrap:hover .img__description {
   visibility: visible;
   opacity: 1;
+
+/* Celide */
 }
