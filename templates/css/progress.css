@@ -1,0 +1,23 @@
+#progress {
+  position: absolute;
+  right: 620px;
+  top: 100px;
+  background-color: white;
+  border: 6px solid black;
+  padding:20px;
+}
+
+.H {
+  background-color: black;
+  color: white;
+  font-family: fantasy;
+  font-weight: bolder;
+  font-size: 30px;
+  position: absolute;
+  bottom: 100px;
+  right: 700px;
+}
+.homeButt {
+  text-align: center;
+  justify-content: space-around;
+}

@@ -7,6 +7,9 @@ import os
 import json
 import random
 
+
+
+
 the_jinja_env = jinja2.Environment(
 loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions=['jinja2.ext.autoescape'],
@@ -33,66 +36,130 @@ class BaseHandler(webapp2.RequestHandler):
 class MainPage(webapp2.RequestHandler):
     def get(self):
 
-        home_template = the_jinja_env.get_template('HTML_groupproject.html')
-        self.response.write(home_template.render())
+      user = users.get_current_user()
+      email_address = user.nickname()
+      cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
+      variable_dict={
+        "cssi_user": cssi_user
+        }
+      home_template = the_jinja_env.get_template('HTML_groupproject.html')
+      self.response.write(home_template.render(variable_dict))
+
+
+
 
 trivia_url_endpoint = [
-        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: One you know for sure is the way out, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
-            "count": 1,
-            "correct_answer": "Door 1",
-            "answers": [
-                "Door 1",
-                "Door 2",
-                "Sit and Rot",
-                "Make Tallies on the Wall"
-            ],
-	    "correct": False
-        },
-        {"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-                ],
-	    "correct": False
-            },
-        {"ID":2, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ],
-	    "correct": False
-        },
-        {"ID":3, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ],
-	    "correct": False
-        },
-        {"ID":4, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ], 
-	    "correct": False
-        },
+{"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: Door 1 you know for sure holds a deadly booby trap, and the other contains a ferocious lion that hasn't eaten in three weeks! What path will you choose?",
+    "count": 1,
+    "correct_answer": "Door 2",
+    "answers": [
+        "Door 1",
+        "Door 2",
+        "Sit and Rot",
+        "Both"
     ]
+},
+{"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figure out what letters come next? :: Y F G Y T W L P C Y F O ...",
+   "count": 1,
+    "correct_answer": "W L C N",
+    "answers": [
+        "W Q D N",
+        "J I D K",
+        "W L C N",
+        "I D C N"
+        ]
+    },
+{"ID":2, "question": "How many holes does a straw have?",
+   "count": 1,
+    "correct_answer": "ONE!",
+    "answers": [
+        "ZERO!",
+        "TWO!",
+        "ONE!",
+        "THREE!"
+    ]
+},
+{"ID":3, "question": "Imagine you are stranded inside a zombie infested city! You have a match and three items in the Dark Food Market building you are in: a stove, a Cannon, and a gas lamp. What item will you light first? Hurry the zombies are outside! ",
+   "count": 1,
+    "correct_answer": "The Match and Nothing else!",
+    "answers": [
+        "The Cannon: Tell dem' Zombies to 'Come and Get It!'",
+        "The Stove: The rest of the tribe needs cooked food!",
+        "The Match and Nothing else!",
+        "The Gas Lamp: It's dark and scary!"
+    ]
+},
+{"ID":4, "question": "What is the difference between a Student studying and a Farmer watching his cattle?",
+   "count": 1,
+    "correct_answer": "One stocks his mind, while the other watches his stock",
+    "answers": [
+        "One stocks bookshelves, while the other reads the books",
+        "One stocks his mind, while the other watches his stock",
+        "One goes to school all day, while the other goes to the farm all day",
+        "IDK"
+    ]
+},
+{"ID":5, "question": "Blue, Yellow, GRASS :: Red, White, ROSE :: Red, Yellow, ... What's Next?",
+   "count": 1,
+    "correct_answer": "Orange",
+    "answers": [
+        "Orange",
+        "Pie",
+        "Flower",
+        "Ornange"
+    ]
+},
+{"ID":6, "question": "It has keys but no locks, space but no room, you can enter but can't go inside...",
+   "count": 1,
+    "correct_answer": "It's a Keyboard",
+    "answers": [
+        "It's a Soul",
+        "It's a Phone",
+        "It's a Ship",
+        "It's a Keyboard"
+    ]
+},
+{"ID":7, "question": "1, 111, 131, 11311, 12321...What's Next?",
+   "count": 1,
+    "correct_answer": "14341",
+    "answers": [
+        "1123211",
+        "14341",
+        "1223221",
+        "142241"
+    ]
+},
+{"ID":8, "question": "Give me air and I LIVE, Give me water and I DIE. Yet some say that I am a passion that is ALIVE...What am I?",
+   "count": 1,
+    "correct_answer": "Fire",
+    "answers": [
+        "Fear",
+        "Fire",
+        "Love",
+        "Hope"
+    ]
+},
+{"ID":9, "question": "When you keep me you have me, If you reveal me then you loose me...What am I?",
+   "count": 1,
+    "correct_answer": "A secret",
+    "answers": [
+        "A lover",
+        "A safe",
+        "A sercret",
+        "A friend"
+    ]
+},
+{"ID":10, "question": "How do Computer Scientist make thier computer so smart?",
+   "count": 1,
+    "correct_answer": "They listen to their motherboard.",
+    "answers": [
+        "They go to college and graduate with a Bachelors.",
+        "They listen to the team at Google",
+        "They listen to their motherboard.",
+        "They let the Computers build the Computers"
+    ]
+},
+]
 
 class BrainDiagram(webapp2.RequestHandler):
   def get(self):
@@ -111,6 +178,16 @@ class BrainDiagram(webapp2.RequestHandler):
           }
           self.response.write(braindiagram_html.render(thisdict))
 
+class BrainDiagram(webapp2.RequestHandler):
+  def get(self):
+    user = users.get_current_user()
+    email_address = user.nickname()
+    cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
+    variable_dict={
+      "cssi_user": cssi_user
+      }
+    braindiagram_html = the_jinja_env.get_template('HTML_groupproject.html')
+    self.response.write(braindiagram_html.render(variable_dict))
 
 
 class CssiUser(ndb.Model):
@@ -162,36 +239,32 @@ class LogIn(webapp2.RequestHandler):
     login_html = the_jinja_env.get_template('thankssignup.html')
     print(cssi_user)
 
-    self.response.write(login_html.render(cssi_user = cssi_user))
+    variable_dict={
+    "cssi_user": cssi_user
+    }
+    self.response.write(login_html.render(variable_dict))
 
 class UserInfo(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         email_address = user.nickname()
         cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
-        first_name = CssiUser.query().filter(CssiUser.first_name == cssi_user.first_name).get()
-
         # If the user is registered...
         if cssi_user:
             login_html = the_jinja_env.get_template('welcomeuser.html')
             print(cssi_user)
 
-            thisdict =	{
-              "username": cssi_user,
-              "first_name": cssi_user.first_name
-            }
-            x = thisdict["username"]
-            self.response.write(login_html.render(thisdict))
+            self.response.write(login_html.render(cssi_user = cssi_user))
         # If the user isn't registered...
-
-
-
         else:
           # Offer a registration form for a first-time visitor:
-          self.response.write(login_html.render(cssi_user = cssi_user))
+
+
 
           login_html = the_jinja_env.get_template('makeaccount.html')
-          self.response.write(login_html.render(thisdict))
+          self.response.write(login_html.render(cssi_user = cssi_user))
+
+
 
 
 class BrainQuizPage(webapp2.RequestHandler):
@@ -200,6 +273,7 @@ class BrainQuizPage(webapp2.RequestHandler):
         next = 0
         if current != "":
             next = int(current)+ 1
+
 
         if next >= len(trivia_url_endpoint):
             self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=/results\">")
@@ -215,9 +289,16 @@ class BrainQuizPage(webapp2.RequestHandler):
         # add ...........................^[next]
         # for answer in trivia_url_endpoint[0]["incorrect_answers"]:
 
+        # random.shuffle(all_answers)
+
+        qtn = { "answers": trivia_url_endpoint[next]["answers"],
+            "question": trivia_url_endpoint[next]["question"], "correct": trivia_url_endpoint[next]["correct_answer"], "ID": next
+            }
+
         qtn = self.get_current_qtn(next)
 
-        # random.shuffle(qtn.question())
+
+
 
         self.response.write(quiz_template.render(qtn))
 
@@ -238,6 +319,7 @@ class ResultsPage(BaseHandler):
 	num = self.request.get("question")
         qtn = self.get_current_qtn(int(num))
 
+    def get_current_qtn(self, next):
 	print("answer: " + ans)
  	print("correct answer: " + qtn["correct"])
 	if(ans == qtn["correct"]):

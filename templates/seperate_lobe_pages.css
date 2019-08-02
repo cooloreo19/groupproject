@@ -119,11 +119,5 @@ button:before {
 }
 
 button:hover:before {
-	height: 42px;
-}
-
-.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-
+	height: 100px;
 }
