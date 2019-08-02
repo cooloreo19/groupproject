@@ -30,7 +30,7 @@ class MainPage(webapp2.RequestHandler):
 
 
 trivia_url_endpoint = [
-{"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: Door 1 you know for sure holds a deadly booby trap, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
+{"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: Door 1 you know for sure holds a deadly booby trap, and the other contains a ferocious lion that hasn't eaten in three weeks! What path will you choose?",
     "count": 1,
     "correct_answer": "Door 2",
     "answers": [
