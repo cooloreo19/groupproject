@@ -13,6 +13,13 @@ body {
   font-size: 28px;
   font-family: sans-serif;
 }
+.H {
+  background-color: black;
+  color: white;
+  font-family: fantasy;
+  position: absolute;
+  right: 100px;
+}
 
 img {
   border-radius: 50%;
@@ -38,16 +45,6 @@ img {
 
 }
 
-.H {
-  background-color: black;
-  color: black;
-  font-family: fantasy;
-  font-weight: bolder;
-  position: relative;
-  right: 185px;
-  top: 100px
-  font-size: 50px;
-}
 
 .connect1 {
   font-family: serif;

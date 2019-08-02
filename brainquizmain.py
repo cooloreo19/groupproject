@@ -13,6 +13,7 @@ autoescape=True)
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
+
         home_template = the_jinja_env.get_template('HTML_groupproject.html')
         self.response.write(home_template.render())
 
@@ -31,7 +32,7 @@ class BrainDiagram(webapp2.RequestHandler):
             "username": cssi_user,
             "first_name": cssi_user.first_name
           }
-          self.response.write(braindiagram_html.render(thisdict))   
+          self.response.write(braindiagram_html.render(thisdict))
 
 
 
@@ -131,9 +132,9 @@ class BrainQuizPage(webapp2.RequestHandler):
 
 
         trivia_url_endpoint = [
-        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: Door1 you know for sure holds a deadly booby trap, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
+        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: Door 1 you know for sure holds a deadly booby trap, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
             "count": 1,
-            "correct_answer": "Door2",
+            "correct_answer": "Door 2",
             "answers": [
                 "Door 1",
                 "Door 2",
@@ -194,12 +195,8 @@ class BrainQuizPage(webapp2.RequestHandler):
     ]
 
         if next >= len(trivia_url_endpoint):
-            self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=https://www.w3docs.com\" />")
+            self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=templates/results_progress.html\">")
             return
-
-
-
-
 
 
         quiz_template = the_jinja_env.get_template('quiz.html')
@@ -219,6 +216,8 @@ class BrainQuizPage(webapp2.RequestHandler):
             "correct": trivia_url_endpoint[next]["correct_answer"],
             "ID": next
             }
+
+
 
         # random.shuffle(qtn.question())
 
