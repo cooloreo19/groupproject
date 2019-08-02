@@ -45,13 +45,14 @@ img {
   font-weight: bolder;
   position: relative;
   right: 185px;
+  top: 100px
   font-size: 50px;
 }
 
 .connect1 {
   font-family: serif;
   font-size: 15px;
-  
+
 }
 .connect {
   font-size: 20px;
