@@ -30,62 +30,87 @@ class MainPage(webapp2.RequestHandler):
 
 
 trivia_url_endpoint = [
-        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: One you know for sure is the way out, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
-            "count": 1,
-            "correct_answer": "Door 1",
-            "answers": [
-                "Door 1",
-                "Door 2",
-                "Sit and Rot",
-                "Make Tallies on the Wall"
-            ],
-	    "correct": False
-        },
-        {"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-                ],
-	    "correct": False
-            },
-        {"ID":2, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ],
-	    "correct": False
-        },
-        {"ID":3, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ],
-	    "correct": False
-        },
-        {"ID":4, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
-           "count": 1,
-            "correct_answer": "W L C N",
-            "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
-            ],
-	    "correct": False
-        },
+{"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: Door 1 you know for sure holds a deadly booby trap, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
+    "count": 1,
+    "correct_answer": "Door 2",
+    "answers": [
+        "Door 1",
+        "Door 2",
+        "Sit and Rot",
+        "Both"
     ]
+},
+{"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figure out what letters come next? :: Y F G Y T W L P C Y F O ...",
+   "count": 1,
+    "correct_answer": "W L C N",
+    "answers": [
+        "W Q D N",
+        "J I D K",
+        "W L C N",
+        "I D C N"
+        ]
+    },
+{"ID":2, "question": "Does a straw have 1 hole or 2?",
+   "count": 1,
+    "correct_answer": "ONE!",
+    "answers": [
+        "ONE!",
+        "",
+        "",
+        "TWO!"
+    ]
+},
+{"ID":3, "question": "Imagine you are stranded inside a zombie infested city! You have a match and three items in the building you are in: a stove, a Cannon, and a gas lamp. What item will you light first? Hurry the zombies are outside! ",
+   "count": 1,
+    "correct_answer": "One stocks his mind, while the other watches his stock",
+    "answers": [
+        "One stocks bookshelves, while the other reads the books",
+        "One stocks his mind, while the other watches his stock",
+        "One goes to school all day, while the other goes to the farm all day",
+        "IDK"
+    ]
+},
+{"ID":4, "question": "What is the difference between a Student studying and a Farmer watching his cattle?",
+   "count": 1,
+    "correct_answer": "One stocks his mind, while the other watches his stock",
+    "answers": [
+        "One stocks bookshelves, while the other reads the books",
+        "One stocks his mind, while the other watches his stock",
+        "One goes to school all day, while the other goes to the farm all day",
+        "IDK"
+    ]
+},
+{"ID":5, "question": "Blue, Yellow, GRASS :: Red, White, ROSE :: Red, Yellow, ... What's Next?",
+   "count": 1,
+    "correct_answer": "Orange",
+    "answers": [
+        "Orange",
+        "Pie",
+        "Flower",
+        "Ornange"
+    ]
+},
+{"ID":6, "question": "It has keys but no locks, space but no room, you can enter but can't go inside...",
+   "count": 1,
+    "correct_answer": "It's a Keyboard",
+    "answers": [
+        "It's a Soul",
+        "It's a Phone",
+        "It's a Ship",
+        "It's a Keyboard"
+    ]
+},
+{"ID":7, "question": "1, 111, 131, 11311, 12321...What's Next?",
+   "count": 1,
+    "correct_answer": "14341",
+    "answers": [
+        "1123211",
+        "14341",
+        "1223221",
+        "142241"
+    ]
+},
+]
 
 class BrainDiagram(webapp2.RequestHandler):
   def get(self):
@@ -199,6 +224,7 @@ class BrainQuizPage(webapp2.RequestHandler):
         next = 0
         if current != "":
             next = int(current)+ 1
+
 
         if next >= len(trivia_url_endpoint):
             self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=templates/results_progress.html\">")
