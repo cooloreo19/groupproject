@@ -2,10 +2,6 @@ body {
   font-family: 'Pontano Sans', sans-serif;
 }
 
-<<<<<<< HEAD
-.profile-card {
-  background-color: skyblue;
-=======
 #head1 {
   text-align: left;
   text-shadow: 2px 1px black;
@@ -26,7 +22,6 @@ img {
 }
 .profile-card {
   background-color: lightgrey;
->>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
   border-radius: 10px;
   width: 450px;
   height: 600px;
@@ -36,11 +31,6 @@ img {
   font-size: 14px;
 }
 
-<<<<<<< HEAD
-.profiles {
-  display: flex;
-  justify-content: space-around;
-=======
 
 .profiles {
   display: flex;
@@ -61,12 +51,11 @@ img {
 .connect1 {
   font-family: serif;
   font-size: 15px;
-  
+
 }
 .connect {
   font-size: 20px;
   font-weight: lighter;
   font-family: sans-serif;
 
->>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }

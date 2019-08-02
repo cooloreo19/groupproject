@@ -3,10 +3,7 @@
   font-family: fantasy;
   font-size: 65px;
   text-decoration: underline;
-<<<<<<< HEAD
 
-=======
->>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }
 .FrontalLobe {
   color: blue;
@@ -39,11 +36,6 @@
 .C {
   background-color: grey;
 }
-<<<<<<< HEAD
-#head2 {
-  text-align: center;
-  font-weight: lighter;
-=======
 .H {
   background-color: black;
   color: white;
@@ -60,7 +52,6 @@
   text-align: center;
   font-weight:lighter;
   background-color: white;
->>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }
 
 #head3 {
@@ -73,10 +64,7 @@
   text-align: center;
   font-weight: lighter;
   font-family: times;
-<<<<<<< HEAD
-=======
   background-color: white;
->>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }
 form {
   text-align: center;
@@ -99,9 +87,6 @@ div {
   border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-<<<<<<< HEAD
-
-=======
   transition: all 500ms ease;
 }
 
@@ -135,7 +120,6 @@ button:before {
 
 button:hover:before {
 	height: 42px;
->>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }
 
 .disabled {

@@ -9,9 +9,6 @@ function NextQuestion() {
       "answer": ans
     }
   })
-<<<<<<< HEAD
-}
-=======
 
 }
  function selected(){
@@ -27,4 +24,3 @@ $(".buttonsec").click(function(){
         $(document).ready(function (){
             selected();
         })
->>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
