@@ -1,4 +1,5 @@
 import webapp2
+from webapp2_extras import sessions
 from google.appengine.api import users
 from google.appengine.ext import ndb
 import jinja2
@@ -10,6 +11,24 @@ the_jinja_env = jinja2.Environment(
 loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions=['jinja2.ext.autoescape'],
 autoescape=True)
+
+class BaseHandler(webapp2.RequestHandler):
+    def dispatch(self):
+        # Get a session store for this request.
+        self.session_store = sessions.get_store(request=self.request)
+
+        try:
+            # Dispatch the request.
+            webapp2.RequestHandler.dispatch(self)
+        finally:
+            # Save all sessions.
+            self.session_store.save_sessions(self.response)
+
+    @webapp2.cached_property
+    def session(self):
+        # Returns a session using the default cookie key.
+        return self.session_store.get_session()    
+
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
@@ -183,7 +202,7 @@ class BrainQuizPage(webapp2.RequestHandler):
             next = int(current)+ 1
 
         if next >= len(trivia_url_endpoint):
-            self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=templates/results_progress.html\">")
+            self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=/results\">")
             return
 
         quiz_template = the_jinja_env.get_template('quiz.html')
@@ -202,24 +221,46 @@ class BrainQuizPage(webapp2.RequestHandler):
 
         self.response.write(quiz_template.render(qtn))
 
-    def post(self):
-        print(self.request.get("answer"))
-        ans = self.request.get("answer")
-	num = self.request.get("question")
-        qtn = self.get_current_qtn(int(num))
-        
-        if(ans == qtn["correct"]):
-	    print("ye")
-	else:
-	    print("no")
-    
     def get_current_qtn(self, next):
-
         qtn = { "answers": trivia_url_endpoint[next]["answers"],
             "question": trivia_url_endpoint[next]["question"], "correct": trivia_url_endpoint[next]["correct_answer"], "ID": next
             }
 	return qtn
+
+class ResultsPage(BaseHandler):
+
+    def post(self):
+	print(self.session)
+	if 'good_ans' not in self.session:
+	    self.session['good_ans'] = 0
+
+	ans = self.request.get("answer")
+	num = self.request.get("question")
+        qtn = self.get_current_qtn(int(num))
+
+	print("answer: " + ans)
+ 	print("correct answer: " + qtn["correct"])
+	if(ans == qtn["correct"]):
+	    self.session['good_ans'] += 1 
+
+	print(qtn["correct"])
+
+    def get(self):	
+	print(self.session)
+	score = {"num": self.session.get('good_ans')}
+	result_template = the_jinja_env.get_template('results_progress.html')
+	self.response.write(result_template.render(score))
 	
+    def get_current_qtn(self, next):
+        qtn = { "answers": trivia_url_endpoint[next]["answers"],
+            "question": trivia_url_endpoint[next]["question"], "correct": trivia_url_endpoint[next]["correct_answer"], "ID": next
+            }
+	return qtn
+
+config = {}
+config['webapp2_extras.sessions'] = {
+    'secret_key': 'my-super-secret-key',
+}
 
 app = webapp2.WSGIApplication([
     ('/brainquiz', BrainQuizPage),
@@ -227,4 +268,5 @@ app = webapp2.WSGIApplication([
     ('/braindiagram', BrainDiagram),
     ('/', MainPage),
     ('/userinfo', UserInfo),
-    ], debug=True)
+    ('/results', ResultsPage),
+    ], debug=True, config=config)
