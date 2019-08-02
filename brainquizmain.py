@@ -50,24 +50,24 @@ trivia_url_endpoint = [
         "I D C N"
         ]
     },
-{"ID":2, "question": "Does a straw have 1 hole or 2?",
+{"ID":2, "question": "How many holes does a straw have?",
    "count": 1,
     "correct_answer": "ONE!",
     "answers": [
+        "ZERO!",
+        "TWO!",
         "ONE!",
-        "",
-        "",
-        "TWO!"
+        "THREE!"
     ]
 },
-{"ID":3, "question": "Imagine you are stranded inside a zombie infested city! You have a match and three items in the building you are in: a stove, a Cannon, and a gas lamp. What item will you light first? Hurry the zombies are outside! ",
+{"ID":3, "question": "Imagine you are stranded inside a zombie infested city! You have a match and three items in the Dark Food Market building you are in: a stove, a Cannon, and a gas lamp. What item will you light first? Hurry the zombies are outside! ",
    "count": 1,
-    "correct_answer": "One stocks his mind, while the other watches his stock",
+    "correct_answer": "The Match and Nothing else!",
     "answers": [
-        "One stocks bookshelves, while the other reads the books",
-        "One stocks his mind, while the other watches his stock",
-        "One goes to school all day, while the other goes to the farm all day",
-        "IDK"
+        "The Cannon: Tell dem' Zombies to 'Come and Get It!'",
+        "The Stove: The rest of the tribe needs cooked food!",
+        "The Match and Nothing else!",
+        "The Gas Lamp: It's dark and scary!"
     ]
 },
 {"ID":4, "question": "What is the difference between a Student studying and a Farmer watching his cattle?",
@@ -108,6 +108,36 @@ trivia_url_endpoint = [
         "14341",
         "1223221",
         "142241"
+    ]
+},
+{"ID":8, "question": "Give me air and I LIVE, Give me water and I DIE. Yet some say that I am a passion that is ALIVE...What am I?",
+   "count": 1,
+    "correct_answer": "Fire",
+    "answers": [
+        "Fear",
+        "Fire",
+        "Love",
+        "Hope"
+    ]
+},
+{"ID":9, "question": "When you keep me you have me, If you reveal me then you loose me...What am I?",
+   "count": 1,
+    "correct_answer": "A secret",
+    "answers": [
+        "A lover",
+        "A safe",
+        "A sercret",
+        "A friend"
+    ]
+},
+{"ID":10, "question": "How do Computer Scientist make thier computer so smart?",
+   "count": 1,
+    "correct_answer": "They listen to their motherboard.",
+    "answers": [
+        "They go to college and graduate with a Bachelors.",
+        "They listen to the team at Google",
+        "They listen to their motherboard.",
+        "They let the Computers build the Computers"
     ]
 },
 ]
@@ -211,7 +241,7 @@ class UserInfo(webapp2.RequestHandler):
           # Offer a registration form for a first-time visitor:
 
 
-          
+
           login_html = the_jinja_env.get_template('makeaccount.html')
           self.response.write(login_html.render(cssi_user = cssi_user))
 
