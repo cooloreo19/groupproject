@@ -9,4 +9,18 @@ function NextQuestion() {
       "answer": ans
     }
   })
+
 }
+ function selected(){
+$(".buttonsec").click(function(){
+          if($(this).is(':checked')){
+              $(this).parent().addClass("selected");
+          }
+          $(".buttonsec").not(this).each(function(){
+          $(this).parent().removeClass("selected");
+          });
+        });}
+
+        $(document).ready(function (){
+            selected();
+        })

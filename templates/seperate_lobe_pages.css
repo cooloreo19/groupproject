@@ -3,7 +3,6 @@
   font-family: fantasy;
   font-size: 65px;
   text-decoration: underline;
-
 }
 .FrontalLobe {
   color: blue;
@@ -36,9 +35,22 @@
 .C {
   background-color: grey;
 }
+.H {
+  background-color: black;
+  color: white;
+  font-family: fantasy;
+  font-weight: bolder;
+  position: relative;
+  top: 185px
+}
+.homeButt {
+  text-align: center;
+  justify-content: space-around;
+}
 #head2 {
   text-align: center;
-  font-weight: lighter;
+  font-weight:lighter;
+  background-color: white;
 }
 
 #head3 {
@@ -51,6 +63,7 @@
   text-align: center;
   font-weight: lighter;
   font-family: times;
+  background-color: white;
 }
 form {
   text-align: center;

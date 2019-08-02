@@ -31,17 +31,17 @@ class BrainQuizPage(webapp2.RequestHandler):
 
 
         trivia_url_endpoint = [
-        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: One you know for sure is the way out, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
+        {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: Door1 you know for sure holds a deadly booby trap, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
             "count": 1,
-            "correct_answer": "Door 1",
+            "correct_answer": "Door2",
             "answers": [
                 "Door 1",
                 "Door 2",
                 "Sit and Rot",
-                "Make Tallies on the Wall"
+                "Both"
             ]
         },
-        {"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
+        {"ID":1, "question": "You friend gives you this wierd looking phrase. Can you figure out what letters come next? :: Y F G Y T W L P C Y F O ...",
            "count": 1,
             "correct_answer": "W L C N",
             "answers": [
@@ -51,37 +51,48 @@ class BrainQuizPage(webapp2.RequestHandler):
                 "I D C N"
                 ]
             },
-        {"ID":2, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
+        {"ID":2, "question": "What is the difference between a Student studying and a Farmer watching his cattle?",
            "count": 1,
-            "correct_answer": "W L C N",
+            "correct_answer": "One stocks his mind, while the other watches his stock",
             "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
+                "One stocks bookshelves, while the other reads the books",
+                "One stocks his mind, while the other watches his stock",
+                "One goes to school all day, while the other goes to the farm all day",
+                "IDK"
             ]
         },
-        {"ID":3, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
+        {"ID":3, "question": "Blue, Yellow, GRASS :: Red, White, ROSE :: Red, Yellow, ... What's Next?",
            "count": 1,
-            "correct_answer": "W L C N",
+            "correct_answer": "Orange",
             "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
+                "Orange",
+                "Pie",
+                "Flower",
+                "Ornange"
             ]
         },
-        {"ID":4, "question": "You friend gives you this wierd looking phrase. Can you figur out what letters come next? :: Y F G Y T W L P C Y F O ...",
+        {"ID":4, "question": "It has keys but no locks, space but no room, you can enter but can't go inside...",
            "count": 1,
-            "correct_answer": "W L C N",
+            "correct_answer": "It's a Keyboard",
             "answers": [
-                "W Q D N",
-                "J I D K",
-                "W L C N",
-                "I D C N"
+                "It's a Soul",
+                "It's a Phone",
+                "It's a Ship",
+                "It's a Keyboard"
+            ]
+        },
+        {"ID":5, "question": "1, 111, 131, 11311, 12321...What's Next?",
+           "count": 1,
+            "correct_answer": "14341",
+            "answers": [
+                "1123211",
+                "14341",
+                "1223221",
+                "142241"
             ]
         },
     ]
+
         if next >= len(trivia_url_endpoint):
             self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=https://www.w3docs.com\" />")
             return
@@ -101,13 +112,15 @@ class BrainQuizPage(webapp2.RequestHandler):
         # add ...........................^[next]
         # for answer in trivia_url_endpoint[0]["incorrect_answers"]:
 
-        # random.shuffle(all_answers)
+
 
         qtn = { "answers": trivia_url_endpoint[next]["answers"],
-            "question": trivia_url_endpoint[next]["question"], "correct": trivia_url_endpoint[next]["correct_answer"], "ID": next
+            "question": trivia_url_endpoint[next]["question"],
+            "correct": trivia_url_endpoint[next]["correct_answer"],
+            "ID": next
             }
 
-
+        # random.shuffle(qtn.question())
 
 
 
