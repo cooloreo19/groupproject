@@ -1,3 +1,5 @@
+application: userapp
+version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -5,10 +7,12 @@ threadsafe: true
 handlers:
 - url: /templates
   static_dir: templates
+- url: /stylesheet
+  static_dir: stylesheet
 - url: /images
   static_dir: images
 - url: /.*
-  script: main.app
+  script: brainquizmain.app
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
@@ -20,13 +24,3 @@ libraries:
   version: latest
 - name: webapp2
   version: "2.5.2"
-
-
-application: userapp
-version: 1
-runtime: python27
-api_version: 1
-threadsafe: yes
-
-- url: .*
-  script: main.app
