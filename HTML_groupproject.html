@@ -3,31 +3,31 @@
   <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="CS_groupproject.css">
+    <link rel="stylesheet" href="/stylesheet/CS_groupproject.css">
     <script src="JS_groupproject.js">
     </script>
       <script type = "text/javascript">
             function showName(name) {
               console.log("We did it!!");
                const p = document.querySelector('#labels');
-               if (name == "Temporal Lobe"){
+               if (name == "TEMPORAL LOBE"){
                  // const temporal = document.querySelector('#temporal_lobe_paragraph');
                  // // temporal.style.visibility= "visible";
-                 p.innerHTML= "<h1>" + name + "<br>" + "The Temporal Lobe is..." + "</h1>";
+                 p.innerHTML= "<h1>" + name + ":"+  "<br>" + "Involved in primary auditory perception, such as hearing, and holds the primary auditory cortex." + "<br>" + "Secondary areas process the information into meaningful units such as speech and words." + "</h1>";
                }
-               else if (name == "Frontal Lobe"){
+               else if (name == "FRONTAL LOBE"){
                  // const temporal = document.querySelector('#frontal_lobe_paragraph');
                  // temporal.style.visibility= "visible";
-                 p.innerHTML= "<h1>" + name + "<br>" + "The Frontal Lobe is...." + "</h1>";
+                 p.innerHTML= "<h1>" + name + ":" + "<br>"+ " Controls important human functions and skills such as our emotional expression, movement, and memory."+ "<br>" +"Control center for our body and gives us our unique personality and communication abilities." + "</h1>";
                }
-               else if (name == "Parietal Lobe"){
-                 p.innerHTML= "<h1>" + name + "<br>" + "The Parietal Lobe is..." + "</h1>";
+               else if (name == "PARIETAL LOBE"){
+                 p.innerHTML= "<h1>" + name + ":" +"<br>"+ "Where the majority of sensory signals and nerve communication occurs."+ "<br>" +"Helps determine warmth, cold, pain, touch, and even determine our surroundings!" + "</h1>";
                }
-               else if (name == "Occipital Lobe"){
-                 p.innerHTML= "<h1>" + name + "<br>" + "The Occipital Lobe is..." + "</h1>";
+               else if (name == "OCCIPITAL LOBE"){
+                 p.innerHTML= "<h1>" + name + ":" + "<br>" + "Has a primary function of receiving information from the retina of the eyes and interprets that light into visible images." + "<br>" + "Where color and the 3D world as we know it is stitched together into a single masterpiece." + "</h1>";
                }
-               else if (name == "Cerebellum"){
-                 p.innerHTML= "<h1>" + name + "<br>" + "The Cerebellum is....." + "</h1>";
+               else if (name == "CEREBELLUM"){
+                 p.innerHTML= "<h1>" + name + ":" + "<br>" + "Receives information from the sensory systems, the spinal cord, and other parts of the brain and then regulates motor movements." + "<br>" + "Coordinates voluntary movements such as posture, balance, coordination, and speech, resulting in smooth and balanced muscular activity." + "</h1>";
                }
               else{
                 p.innerHTML="<h1>" + name + "</h1>";
@@ -44,19 +44,20 @@
    	  <a href="templates/quiz.html">BRAIN QUIZ</a>
 	  <a href="templates/profile.html">SUCCESS PROFILE</a>
     <a href="templates/about.html">ABOUT US</a>
+    <a href="/login">LOGOUT</a>
+    <p>User Name</p>
+
 
     </div>
 
     <h1 id = "heading1">Brain Games</h1>
     <h2 id = "heading2">Test different parts of your BRAIN!</h2>
     <h2 id = "heading2">Learn awesome facts about the brain and learn how to improve different parts of it!!</h2>
-<<<<<<< HEAD
 
 
     <div class="textboxinfo">
-      <img class="img__img" src="images/image2.png" usemap="#image-map">
 
-    <p id="labels">..</p>
+    <p id="labels"></p>
     <!-- <p style="visibility: hidden;" id= "temporal_lobe_paragraph">The kfhsdkfhksdjhfkdsjhf jfhesdgfjdhsfhs dhlfkshdkflhskdlhflksdh.</p>
     <div style="display: table-cell; vertical-align: middle;"class="img__wrap"> -->
     <br>
@@ -68,37 +69,35 @@
         onMouseOver="showTutorial('Temporal Lobe')"
         onMouseOut="showTutorial('')">
       </map> -->
-=======
->>>>>>> 7612898d5bdac60c0bf00274a35343f77f713ca4
 
     <div class="img_test" >
     <h3 id="labels"></h3>
 
 
       <div  class="img__wrap">
-        <img src="images/image2.png" usemap="#image-map">
+        <img src="/images/image2.png" usemap="#image-map">
       </div>
 
       <map name="image-map">
-         <area target="" alt="Temporal Lobe " title="Temporal Lobe" href="https://www.google.com/images" coords="283,538,250,502,273,531,234,476,243,439,268,408,295,357,341,332,392,314,408,306,432,302,464,280,485,275,514,277,581,285,625,295,666,299,697,306,714,309,729,326,726,311,730,339,733,358,718,374,704,402,689,421,669,439,658,460,609,480,500,493,445,518,429,536,407,550,379,554,354,560,323,561,304,550,334,512,314,554" shape="poly"
-        onMouseOver="showName('Temporal Lobe')"
-        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + 'Click on the part you wish to improve...')">
+         <area target="" alt="Temporal Lobe " title="Click for ways to improve Temporal Lobe" href="https://www.memnem.com/index.php/memnems-blog/34-improve-memory/41-about-the-brain-10-ways-to-improve-memory-pt1" coords="283,538,250,502,273,531,234,476,243,439,268,408,295,357,341,332,392,314,408,306,432,302,464,280,485,275,514,277,581,285,625,295,666,299,697,306,714,309,729,326,726,311,730,339,733,358,718,374,704,402,689,421,669,439,658,460,609,480,500,493,445,518,429,536,407,550,379,554,354,560,323,561,304,550,334,512,314,554" shape="poly"
+        onMouseOver="showName('TEMPORAL LOBE')"
+        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -' + '<br>' + 'Click on the part you wish to improve...')">
 
-        <area target="" alt="Frontal Lobe" title="Frontal Lobe" href="https://www.google.com" coords="230,481,234,465,239,444,252,426,266,412,280,382,291,359,307,345,333,333,349,328,366,325,380,315,392,307,385,291,382,275,393,261,403,227,411,207,420,179,427,159,439,148,439,129,432,119,433,104,442,90,454,84,469,78,481,78,493,67,496,51,481,47,460,46,438,44,404,45,384,51,363,52,342,55,324,58,308,64,301,68,285,73,272,78,243,84,208,99,176,114,142,134,108,162,91,190,73,200,64,219,63,232,48,246,39,270,37,283,34,311,37,325,35,339,34,355,39,371,46,393,51,415,62,438,74,453,88,463,106,478,137,488" shape="poly"
-        onMouseOver="showName('Frontal Lobe')"
-        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + 'Click on the part you wish to improve...')">
+        <area target="" alt="Frontal Lobe" title="Click for ways to improve Frontal Lobe" href="https://sharpbrains.com/blog/2007/02/09/brain-workout-for-your-frontal-lobes/" coords="230,481,234,465,239,444,252,426,266,412,280,382,291,359,307,345,333,333,349,328,366,325,380,315,392,307,385,291,382,275,393,261,403,227,411,207,420,179,427,159,439,148,439,129,432,119,433,104,442,90,454,84,469,78,481,78,493,67,496,51,481,47,460,46,438,44,404,45,384,51,363,52,342,55,324,58,308,64,301,68,285,73,272,78,243,84,208,99,176,114,142,134,108,162,91,190,73,200,64,219,63,232,48,246,39,270,37,283,34,311,37,325,35,339,34,355,39,371,46,393,51,415,62,438,74,453,88,463,106,478,137,488" shape="poly"
+        onMouseOver="showName('FRONTAL LOBE')"
+        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -'+ '<br>' + 'Click on the part you wish to improve...')">
 
-         <area target="" alt="Parietal Lobe" title="Parietal Lobe" href="https://www.google.com" coords="390,297,383,278,400,248,407,217,418,189,428,160,441,149,445,140,434,115,436,97,455,86,477,82,490,76,497,60,504,48,521,52,542,51,561,50,575,55,588,60,600,68,614,69,631,74,647,83,665,94,683,105,698,118,713,134,730,142,746,153,757,167,759,176,769,188,783,202,790,215,787,230,772,244,759,256,742,273,730,288,726,299,724,311,709,306,680,302,658,296,629,295,594,286,561,284,522,278,494,271,466,273,451,283,438,295,420,301,398,304" shape="poly"
-        onMouseOver="showName('Parietal Lobe')"
-        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + 'Click on the part you wish to improve...')">
+         <area target="" alt="Parietal Lobe" title="Click for ways to improve Parietal Lobe" href="https://sharpbrains.com/blog/2016/03/25/mental-rotation-exercise-to-challenge-your-brains-parietal-lobe-over-the-holidays/" coords="390,297,383,278,400,248,407,217,418,189,428,160,441,149,445,140,434,115,436,97,455,86,477,82,490,76,497,60,504,48,521,52,542,51,561,50,575,55,588,60,600,68,614,69,631,74,647,83,665,94,683,105,698,118,713,134,730,142,746,153,757,167,759,176,769,188,783,202,790,215,787,230,772,244,759,256,742,273,730,288,726,299,724,311,709,306,680,302,658,296,629,295,594,286,561,284,522,278,494,271,466,273,451,283,438,295,420,301,398,304" shape="poly"
+        onMouseOver="showName('PARIETAL LOBE')"
+        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -' + '<br>' + 'Click on the part you wish to improve...')">
 
-        <area target="" alt="Occipital Lobe" title="Occipital Lobe" href="https://www.twitter.com" coords="724,315,729,295,737,283,749,270,758,260,767,252,776,243,785,237,794,228,804,230,815,243,816,258,825,266,835,277,838,291,841,303,850,311,856,319,860,331,858,344,861,358,860,375,852,383,851,396,849,403,835,427,818,442,801,449,781,454,763,455,747,455,737,455,728,458,712,460,692,460,674,455,663,450,677,434,689,424,698,420,707,400,713,384,721,371,731,361,739,352,734,338,731,323" shape="poly"
-        onMouseOver="showName('Occipital Lobe')"
-        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + 'Click on the part you wish to improve...')">
+        <area target="" alt="Occipital Lobe" title="Click for ways to improve Occipital Lobe" href="https://blog.mindvalley.com/function-of-occipital-lobe/" coords="724,315,729,295,737,283,749,270,758,260,767,252,776,243,785,237,794,228,804,230,815,243,816,258,825,266,835,277,838,291,841,303,850,311,856,319,860,331,858,344,861,358,860,375,852,383,851,396,849,403,835,427,818,442,801,449,781,454,763,455,747,455,737,455,728,458,712,460,692,460,674,455,663,450,677,434,689,424,698,420,707,400,713,384,721,371,731,361,739,352,734,338,731,323" shape="poly"
+        onMouseOver="showName('OCCIPITAL LOBE')"
+        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -' + '<br>' + 'Click on the part you wish to improve...')">
 
-        <area target="" alt="Cerebellum" title="Cerebellum" href="https://www.google.com" coords="485,509,491,523,493,540,504,555,517,557,528,563,544,572,557,579,568,582,578,587,590,591,600,593,613,595,624,595,642,594,662,589,680,580,696,571,711,564,725,554,736,545,748,538,759,530,766,523,774,517,780,507,783,495,784,485,784,476,782,467,782,457,775,455,760,455,745,454,731,458,718,460,709,462,696,461,683,459,672,457,664,455,656,460,644,465,632,471,618,476,611,480,600,483,587,483,575,485,563,486,550,488,537,491,526,491,517,490,509,489,497,497,487,501" shape="poly"
-        onMouseOver="showName('Cerebellum')"
-        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + 'Click on the part you wish to improve...')">
+        <area target="" alt="Cerebellum" title="Click for ways to improve Cerebellum" href="https://learningbreakthrough.com/learning-breakthrough-blog/cerebellum-exercises/" coords="485,509,491,523,493,540,504,555,517,557,528,563,544,572,557,579,568,582,578,587,590,591,600,593,613,595,624,595,642,594,662,589,680,580,696,571,711,564,725,554,736,545,748,538,759,530,766,523,774,517,780,507,783,495,784,485,784,476,782,467,782,457,775,455,760,455,745,454,731,458,718,460,709,462,696,461,683,459,672,457,664,455,656,460,644,465,632,471,618,476,611,480,600,483,587,483,575,485,563,486,550,488,537,491,526,491,517,490,509,489,497,497,487,501" shape="poly"
+        onMouseOver="showName('CEREBELLUM')"
+        onMouseOut="showName('Move the mouse to a part of the brain you want to learn more about... ' + '<br>' + '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -' + '<br>' + 'Click on the part you wish to improve...')">
       </map>
     </div>
 
@@ -106,20 +105,6 @@
 
 
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <br>
