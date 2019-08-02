@@ -13,6 +13,7 @@ autoescape=True)
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
+
         home_template = the_jinja_env.get_template('HTML_groupproject.html')
         self.response.write(home_template.render())
 
@@ -89,7 +90,7 @@ class BrainDiagram(webapp2.RequestHandler):
             "username": cssi_user,
             "first_name": cssi_user.first_name
           }
-          self.response.write(braindiagram_html.render(thisdict))   
+          self.response.write(braindiagram_html.render(thisdict))
 
 
 
@@ -182,7 +183,7 @@ class BrainQuizPage(webapp2.RequestHandler):
             next = int(current)+ 1
 
         if next >= len(trivia_url_endpoint):
-            self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=https://www.w3docs.com\" />")
+            self.response.write("<meta http-equiv=\"Refresh\" content=\"0; url=templates/results_progress.html\">")
             return
 
         quiz_template = the_jinja_env.get_template('quiz.html')
@@ -196,6 +197,9 @@ class BrainQuizPage(webapp2.RequestHandler):
         # for answer in trivia_url_endpoint[0]["incorrect_answers"]:
 
         qtn = self.get_current_qtn(next)
+
+        # random.shuffle(qtn.question())
+
         self.response.write(quiz_template.render(qtn))
 
     def post(self):
