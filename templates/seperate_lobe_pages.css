@@ -3,7 +3,10 @@
   font-family: fantasy;
   font-size: 65px;
   text-decoration: underline;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }
 .FrontalLobe {
   color: blue;
@@ -36,9 +39,28 @@
 .C {
   background-color: grey;
 }
+<<<<<<< HEAD
 #head2 {
   text-align: center;
   font-weight: lighter;
+=======
+.H {
+  background-color: black;
+  color: white;
+  font-family: fantasy;
+  font-weight: bolder;
+  position: relative;
+  top: 185px
+}
+.homeButt {
+  text-align: center;
+  justify-content: space-around;
+}
+#head2 {
+  text-align: center;
+  font-weight:lighter;
+  background-color: white;
+>>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }
 
 #head3 {
@@ -51,6 +73,10 @@
   text-align: center;
   font-weight: lighter;
   font-family: times;
+<<<<<<< HEAD
+=======
+  background-color: white;
+>>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }
 form {
   text-align: center;
@@ -73,7 +99,43 @@ div {
   border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+<<<<<<< HEAD
 
+=======
+  transition: all 500ms ease;
+}
+
+button:before {
+	content:'';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 0px;
+	height: 42px;
+	background: rgba(255,255,255,0.3);
+	border-radius: 5px;
+	transition: all 2s ease;
+}
+
+button:hover:before {
+	width: 100%;
+}
+
+button:before {
+	content:'';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 0px;
+	background: rgba(255,255,255,0.3);
+	border-radius: 5px;
+	transition: all 2s ease;
+}
+
+button:hover:before {
+	height: 42px;
+>>>>>>> f6c11d5fd0fb0661f3cd2fc92b1c1d71df5d38a3
 }
 
 .disabled {

@@ -20,6 +20,17 @@
   text-shadow: 4px 3px black
 }
 
+
+
+
+/* The element to apply the animation to */
+#q {
+  width: 100px;
+  height: 100px;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
 #heading2 {
   font-family: times;
   text-align: center;
@@ -57,7 +68,7 @@
 .table1 {
   color: white;
   background-color: black;
-  font-size: 17px;
+  font-size: 24px;
   font-weight: bolder;
   font-family: monospace;
   display: flex;
