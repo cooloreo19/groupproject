@@ -27,8 +27,7 @@ class MainPage(webapp2.RequestHandler):
       self.response.write(home_template.render(variable_dict))
 
 
-        home_template = the_jinja_env.get_template('HTML_groupproject.html')
-        self.response.write(home_template.render())
+
 
 trivia_url_endpoint = [
         {"ID": 0, "question": "Imagine yourself in a dungeon. There are two doors: One you know for sure is the way out, and the other contains a furocious lion that hasn't eaten in three weeks! What path will you choose?",
@@ -187,8 +186,7 @@ class UserInfo(webapp2.RequestHandler):
           # Offer a registration form for a first-time visitor:
 
 
-          self.response.write(login_html.render(cssi_user = cssi_user))
-
+          
           login_html = the_jinja_env.get_template('makeaccount.html')
           self.response.write(login_html.render(cssi_user = cssi_user))
 
