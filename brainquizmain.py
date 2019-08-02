@@ -201,4 +201,5 @@ app = webapp2.WSGIApplication([
     ('/login', LogIn),
     ('/braindiagram', BrainDiagram),
     ('/', MainPage),
-    ('/userinfo', UserInfo], debug=True)
+    ('/userinfo', UserInfo),
+    ], debug=True)
